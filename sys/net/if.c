@@ -228,7 +228,7 @@ TAILQ_HEAD(, ifg_group) ifg_head = TAILQ_HEAD_INITIALIZER(ifg_head);
 LIST_HEAD(, if_clone) if_cloners = LIST_HEAD_INITIALIZER(if_cloners);
 int if_cloners_count;
 
-struct rwlock if_cloners_lock = RWLOCK_INITIALIZER("clonerlock");
+struct rwlock if_cloners_lock = RWLOCK_INITIALIZER("clonelk");
 
 /* hooks should only be added, deleted, and run from a process context */
 struct mutex if_hooks_mtx = MUTEX_INITIALIZER(IPL_NONE);

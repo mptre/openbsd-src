@@ -716,7 +716,8 @@ tun_dev_ioctl(dev_t dev, u_long cmd, void *data)
 		break;
 	case FIOSETOWN:
 	case TIOCSPGRP:
-		return (sigio_setown(&sc->sc_sigio, cmd, data));
+		error = (sigio_setown(&sc->sc_sigio, cmd, data));
+		break;
 	case FIOGETOWN:
 	case TIOCGPGRP:
 		sigio_getown(&sc->sc_sigio, cmd, data);
